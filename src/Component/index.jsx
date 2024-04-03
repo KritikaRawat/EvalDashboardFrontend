@@ -3,7 +3,7 @@ import React, {useRef, useState, useEffect } from "react";
 import { TypeAnimation } from "react-type-animation";
 import "../assets/Modal.css";
 function index() {
-  const baseurl = "https://evaldashboardbackend-1-p0mw.onrender.com/";
+  const baseurl = "https://evaldashboardbackend-1-p0mw.onrender.com";
   const [mentorName, setMentorName] = useState("");
   const [loginSuccess, setLoginSuccess] = useState(false);
   const [redirectToEvaluation, setRedirectToEvaluation] = useState(false);
