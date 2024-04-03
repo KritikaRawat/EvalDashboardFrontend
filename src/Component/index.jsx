@@ -1,7 +1,11 @@
 
 import React, {useRef, useState, useEffect } from "react";
 import { TypeAnimation } from "react-type-animation";
-import "../assets/Modal.css";
+// import "../assets/Modal.css";
+import img from "../assets/profile.png"
+import FrontBg from "../assets/FrontBg.png"
+import Bg from "../assets/Bg.png"
+
 function index() {
   const baseurl = "https://evaldashboardbackend-1-p0mw.onrender.com";
   const [mentorName, setMentorName] = useState("");
@@ -402,7 +406,7 @@ function index() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-zinc-900" style={{ backgroundImage: `url("../../public/Images/Bg.png")` }}>
+    <div className="w-full min-h-screen bg-zinc-900" style={{ backgroundImage: `url(${Bg})` }}>
       <div class="text-6xl font-extrabold ... text-center pt-20">
         <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-violet-500">
           Evaluation Dashboard: <span className="text-white">Hi Mentor!</span>
@@ -422,13 +426,13 @@ function index() {
 
       <div
         className="bg-white w-full min-h-screen"
-        style={{ backgroundImage: `url("../../public/Images/FrontBg.png")` }}>
+        style={{ backgroundImage: `url(${FrontBg})` }}>
         <div className="flex justify-center gap-x-6 ">
           <div className="mt-10">
             <br />
             <img
               className="w-24 h-25"
-              src="../../public/Images/profile.png"
+              src={img}
               alt="profiledummy"
             />
           </div>
