@@ -3,6 +3,7 @@ import React, {useRef, useState, useEffect } from "react";
 import { TypeAnimation } from "react-type-animation";
 import "../assets/Modal.css";
 function index() {
+  const baseurl = "https://evaldashboardbackend-1-p0mw.onrender.com/";
   const [mentorName, setMentorName] = useState("");
   const [loginSuccess, setLoginSuccess] = useState(false);
   const [redirectToEvaluation, setRedirectToEvaluation] = useState(false);
@@ -36,7 +37,7 @@ function index() {
   //To get the Student data based on filter
   const fetchStudentData = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/students/get`);
+      const response = await fetch(`${baseurl}/api/students/get`);
       const data = await response.json();
       // Filter out students with NULL assignedTo
       const filteredData = data.filter((student) => {
