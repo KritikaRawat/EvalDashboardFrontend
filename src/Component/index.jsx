@@ -54,7 +54,7 @@ function index() {
   //To fetch all the students in the Database
   const fetchAllStudentData = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/students/get`);
+      const response = await fetch(`${baseurl}/api/students/get`);
       const data = await response.json();
       setAllStudentData(data);
       toggleRedirectToAllStudents();
@@ -67,7 +67,7 @@ function index() {
   const fetchAssignedStudents = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/students/assignedTo/${mentorName}`
+        `${baseurl}/api/students/assignedTo/${mentorName}`
       );
       const data = await response.json();
       console.log(data);
@@ -86,7 +86,7 @@ function index() {
     e.preventDefault();
     try {
       const response = await fetch(
-        "http://localhost:3000/api/mentors/loginMentor",
+        `${baseurl}/api/mentors/loginMentor`,
         {
           method: "POST",
           headers: {
@@ -155,7 +155,7 @@ function index() {
         return; //Stop further execution if less than 3 students are selected
       }
       const response = await fetch(
-        "http://localhost:3000/api/students/assign",
+        `${baseurl}/api/students/assign`,
         {
           method: "POST",
           headers: {
@@ -181,7 +181,7 @@ function index() {
         setStudentData(updatedStudentData);
         // Update noAssignedStudents count in the mentor table
         const mentorResponse = await fetch(
-          "http://localhost:3000/api/mentors/updateCount",
+          `${baseurl}/api/mentors/updateCount`,
           {
             method: "POST",
             headers: {
@@ -208,7 +208,7 @@ function index() {
   const handleEditClick = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/students/assignedTo/${mentorName}`
+        `${baseurl}/api/students/assignedTo/${mentorName}`
       );
       const data = await response.json();
       setAssignedStudents(data);
@@ -227,7 +227,7 @@ function index() {
   //Add student
   const handleAddStud = async (name, assignedTo) => {
     try {
-      const response = await fetch("http://localhost:3000/api/students/add", {
+      const response = await fetch(`${baseurl}/api/students/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -269,7 +269,7 @@ function index() {
   const handleDeleteStudent = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/students/delete`,
+        `${baseurl}/api/students/delete`,
         {
           method: "DELETE",
           headers: {
@@ -314,7 +314,7 @@ function index() {
       return;
     }
     setErrorMessage("");
-    fetch("http://localhost:3000/api/students/addMarks", {
+    fetch(`${baseurl}/api/students/addMarks`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -346,7 +346,7 @@ function index() {
   const submitStudentMarks = async (studentName) => {
     try {
       const response = await fetch(
-        "http://localhost:3000/api/students/submitMarks",
+        `${baseurl}/api/students/submitMarks`,
         {
           method: "POST",
           headers: {
